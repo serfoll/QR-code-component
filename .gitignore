@@ -10,12 +10,14 @@ dist
 design
 .parcel-cache
 
+qr-code-component-main
+
 #IGNORE FILES
 .env
 *.sketch
 *.fig
 *.xd
-package-lock.json
 
 README-template.md
+README.md
 style-guide.md
