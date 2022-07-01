@@ -1,6 +1,8 @@
 export default {
-  'colro-white': 'hsl(0, 0%, 100%)',
-  'colro-light-gray': 'hsl(212, 45%, 89%)',
-  'colro-grayish-blue': 'hsl(220, 15%, 55%)',
-  'colro-dark-blue': 'hsl(218, 44%, 22%)',
-};
+  'color-dark-blue': '#253142',
+  'color-grayish-blue': '#D5E1EF',
+  'color-light-gray': '#B4B6C2',
+  'color-pickled-bluewood': '#374963',
+  'color-red': '#FF0000',
+  'color-white': 'hsl(0, 0%, 100%)'
+}

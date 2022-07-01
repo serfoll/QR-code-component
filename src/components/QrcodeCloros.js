@@ -8,5 +8,5 @@ export default [
   '#00cec9',
   '#0984e3',
   '#6c5ce7',
-  '#b2bec3',
-];
+  '#b2bec3'
+]

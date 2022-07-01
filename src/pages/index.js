@@ -1,14 +1,21 @@
-import { BrowserRouter } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 //pages
-import Home from './home';
-import QrCurl from './qrcurl';
+import Home from './home'
+import QrCurl from './qrcurl'
 
 const Pages = () => {
-  <Router>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/qrcurl" component={QrCurl} />
-  </Router>;
-};
+  return (
+    <Router>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="qrcurl" element={<QrCurl />} />
+        </Route>
+      </Routes>
+    </Router>
+  )
+}
 
-export default Pages;
+export default Pages
