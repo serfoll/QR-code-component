@@ -11,8 +11,8 @@ import { setContext } from 'apollo-link-context'
 
 //Style components
 import BaseStyle from './style/base'
+import LocalAuthor from './components/localAuthor'
 import Pages from './pages'
-
 //API configuration
 const cache = new InMemoryCache()
 const uri = process.env.API_URI
@@ -36,6 +36,14 @@ const client = new ApolloClient({
   resolvers: {}
 })
 
+//check for token and write data on initial load
+const data = {
+  isAuthor: !!localStorage.getItem('token')
+}
+cache.writeData({ data })
+//write cache data after cache reset
+client.onResetStore(() => cache.writeData({ data }))
+
 //DOM el
 const container = document.getElementById('root')
 const root = createRoot(container)
@@ -44,6 +52,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <BaseStyle />
+      <LocalAuthor />
       <Pages />
     </ApolloProvider>
   )

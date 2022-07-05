@@ -46,6 +46,7 @@ const Cookies = () => {
   let storageTypeLocal = localStorage
   let storageTypeSession = sessionStorage
 
+  const client = useApolloClient()
   const cookiePropName = 'display_cookies'
 
   const [displayCookies, setDisplayCookies] = useState(false)
@@ -53,7 +54,10 @@ const Cookies = () => {
   const [submitedValue, setSubmitedValue] = useState('')
 
   const [localAuthor, { loading, error }] = useMutation(LOCAL_AUTHOR, {
-    onCompleted: data => localStorage.setItem('token', data.createLocalAuthor)
+    onCompleted: data => {
+      localStorage.setItem('token', data.createLocalAuthor)
+      client.writeData({ data: { isAuthor: true } })
+    }
   })
 
   submitedCookies = () => {
@@ -64,6 +68,7 @@ const Cookies = () => {
     }
     if (submitedValue === 'reject') {
       storageTypeSession.setItem(cookiePropName, true)
+      client.writeData({ data: { isAuthor: false } })
       setDisplayCookies(true)
     }
   }
@@ -74,6 +79,8 @@ const Cookies = () => {
       storageTypeSession.getItem(cookiePropName)
     ) {
       setDisplayCookies(true)
+    } else {
+      client.resetStore()
     }
   })
 

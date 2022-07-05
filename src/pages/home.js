@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 
-import Cookies from '../components/cookies'
 import NewQrCurl from '../components/newQrCurl'
 
 const Home = () => {
@@ -10,7 +9,6 @@ const Home = () => {
 
   return (
     <>
-      <Cookies />
       <NewQrCurl />
     </>
   )
