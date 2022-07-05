@@ -52,4 +52,11 @@ export default createGlobalStyle`
     font-weight: 700;
     text-align: center;
   }
+
+  button{
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 1rem;
+  }
 `

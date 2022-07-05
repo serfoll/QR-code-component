@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Colors from '../style/colors'
+import Colors from './colors'
 
 export default {
   Button: styled.button`
